@@ -10,13 +10,22 @@ import {
 import PollingContext from "../context/PollingContext";
 import { DataTable } from "react-native-paper";
 function Home({navigation}:any) {
-  let { pollingData, prevPage, pageNext,detailData }: any = useContext(PollingContext);
+  let { apiData, prevPage, pageNext,detailData }: any = useContext(PollingContext);
   function newScreen() {
     navigation.navigate('Details')
   }
   
   return (
     <View style={styles.container}>
+      <View style={styles.btnContainer}>
+        <TouchableOpacity onPress={prevPage}>
+          <Text style={styles.numPad}>Previous</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={pageNext}>
+          <Text style={styles.numPad}>Next</Text>
+        </TouchableOpacity>
+      </View>
       <DataTable>
         <DataTable.Header>
           <DataTable.Title ><Text style={styles.heading}>Title</Text></DataTable.Title>
@@ -25,11 +34,13 @@ function Home({navigation}:any) {
           <DataTable.Title> <Text style={styles.heading}>Author</Text> </DataTable.Title>
         </DataTable.Header>
         <View >
+          
           <FlatList
-            data={pollingData.slice(1)}
+            data={apiData}
             renderItem={(ele) => {
               let { objectID, title, url, created_at, author } = ele.item;
 
+                      
               return (
                 <View key={objectID} >
                   <TouchableOpacity onPress={() =>{
@@ -49,15 +60,7 @@ function Home({navigation}:any) {
         </View>
       </DataTable>
 
-      <View style={styles.btnContainer}>
-        <TouchableOpacity onPress={prevPage}>
-          <Text style={styles.numPad}>Previous</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={pageNext}>
-          <Text style={styles.numPad}>Next</Text>
-        </TouchableOpacity>
-      </View>
+      
     </View>
   );
 }

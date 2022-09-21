@@ -3,10 +3,12 @@ import Home from "./screens/Home";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Details from "./screens/Details";
+import { ScrollView } from "react-native";
 
 const Stack = createNativeStackNavigator();
 export default function App() {
   return (
+    
       <PollingState>
         <NavigationContainer>
           <Stack.Navigator initialRouteName="Home">

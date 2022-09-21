@@ -1,5 +1,3 @@
-import { StatusBar } from "expo-status-bar";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
 import PollingState from "./context/PollingState";
 import Home from "./screens/Home";
 import { NavigationContainer } from "@react-navigation/native";

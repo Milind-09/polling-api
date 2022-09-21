@@ -19,10 +19,10 @@ function Home({navigation}:any) {
     <View style={styles.container}>
       <DataTable>
         <DataTable.Header>
-          <DataTable.Title>Title</DataTable.Title>
-          <DataTable.Title>Url</DataTable.Title>
-          <DataTable.Title>Created_At</DataTable.Title>
-          <DataTable.Title>Author</DataTable.Title>
+          <DataTable.Title ><Text style={styles.heading}>Title</Text></DataTable.Title>
+          <DataTable.Title> <Text style={styles.heading}>Url</Text> </DataTable.Title>
+          <DataTable.Title> <Text style={styles.heading}>Created_At</Text> </DataTable.Title>
+          <DataTable.Title> <Text style={styles.heading}>Author</Text> </DataTable.Title>
         </DataTable.Header>
         <View >
           <FlatList
@@ -75,6 +75,10 @@ const styles = StyleSheet.create({
   numPad: {
     padding: 10,
   },
+  heading:{
+    fontSize:20,
+    fontWeight:"bold",
+  }
  
  
 });

@@ -38,7 +38,7 @@ export default function PollingState({ children }: any) {
   }
  
   useEffect(() => {
-    // pollingApi();
+    pollingApi();
     let s = setInterval(() => {
       setIncNum(incNum + 1);
     }, 5000);

@@ -10,10 +10,11 @@ import {
 import PollingContext from "../context/PollingContext";
 import { DataTable } from "react-native-paper";
 function Home({navigation}:any) {
-  let { pollingData, prevPage, pageNext }: any = useContext(PollingContext);
+  let { pollingData, prevPage, pageNext,detailData }: any = useContext(PollingContext);
   function newScreen() {
     navigation.navigate('Details')
   }
+  
   return (
     <View style={styles.container}>
       <DataTable>
@@ -31,7 +32,9 @@ function Home({navigation}:any) {
 
               return (
                 <View key={objectID} >
-                  <TouchableOpacity onPress={() => newScreen()}>
+                  <TouchableOpacity onPress={() =>{
+                    newScreen(),detailData(objectID)
+                  } }>
                     <DataTable.Row>
                       <DataTable.Cell>{title}</DataTable.Cell>
                       <DataTable.Cell>{url}</DataTable.Cell>
